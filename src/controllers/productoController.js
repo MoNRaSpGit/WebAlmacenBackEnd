@@ -4,7 +4,7 @@ import { db } from "../config/db.js";
 export const getProductos = async (req, res) => {
   try {
     const [rows] = await db.query(
-      "SELECT id, name, price, image, barcode, description FROM productos_test WHERE status = 'activo'"
+      "SELECT id, name, price, image, barcode, description FROM productos_test"
     );
     res.json(rows);
   } catch (err) {
@@ -12,6 +12,7 @@ export const getProductos = async (req, res) => {
     res.status(500).json({ error: "Error al obtener productos" });
   }
 };
+
 
 // 📦 Obtener un solo producto
 export const getProductoById = async (req, res) => {
