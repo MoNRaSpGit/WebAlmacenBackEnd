@@ -4,6 +4,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { db } from "./config/db.js";
 import productoRoutes from "./routes/productoRoutes.js";
+import pedidoRoutes from "./routes/pedidoRoutes.js";
+
+
+
 
 
 
@@ -15,6 +19,7 @@ app.use(cors());
 app.use(express.json());
 app.get("/favicon.ico", (req, res) => res.status(204).end());
 app.use("/api/productos", productoRoutes);
+app.use("/api/pedidos", pedidoRoutes);
 
 
 // Ruta de prueba para verificar conexión
